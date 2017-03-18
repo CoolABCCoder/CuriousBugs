@@ -5,5 +5,7 @@ int main()
 {
 	ChangeNextVariablePointer();
 	ChangeNextVariableArray();
+	ChangeNextVariableSscanf();
+	ChangeNextVariableSprintf();
 	
 }

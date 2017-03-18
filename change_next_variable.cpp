@@ -37,6 +37,34 @@ void ChangeNextVariableArray()
 	printf("v1 before array element set = %d\n", v1);
 	ar[1] = 2;
 	printf("v1 after array element set = %d\n", v1);
-	
-	
 }
+
+void ChangeNextVariableSscanf()
+{
+	char v1[4];
+	int v2 = 0x55555555;
+	
+	printf("\nSSCANF TEST:\n"
+		"ADDR: v1:%X, v2:%X\n", v1, &v2);
+		
+	printf("v2 before sscanf = %x\n", v2);
+	sscanf("test", "%s", v1); // We do not touch v2, but just mistook length: 
+	printf("v2 after sscanf = %x\n", v2);	
+}
+
+void ChangeNextVariableSprintf()
+{
+	char v1[16];
+	unsigned int v2 = 0x55555555;
+	unsigned char v3[32] = {0xAA, 0xAA, 0xAA, 0xAA};
+	
+	printf("\nSPRINTF TEST:\n"
+		"ADDR: v1:%X, v2:%X, v3:%X\n", v1, &v2, v3);
+	
+	printf("v2 before sprintf = %x\n", v2);
+	printf("v3 before sprintf = %02x%02x%02x%02x...\n", v3[0], v3[1], v3[2], v3[3]);		
+	sprintf(v1, "%s", "0123456789012345"); // We do not touch v2, but: 
+	printf("v2 after sprintf = %x\n", v2);	
+	printf("v3 after sprintf = %02x%02x%02x%02x...\n", v3[0], v3[1], v3[2], v3[3]);	
+}
+

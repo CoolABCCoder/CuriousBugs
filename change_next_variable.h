@@ -2,4 +2,5 @@
 
 void ChangeNextVariablePointer();
 void ChangeNextVariableArray();
-void ChangeNextVariableScanf();
+void ChangeNextVariableSscanf();
+void ChangeNextVariableSprintf();
